@@ -3,12 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 import { ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-//import useCartStore from '@/stores/cartStore';
+import useCartStore from '@/stores/cartStore';
 import { IProduct } from '@/types/product';
 import { toast } from 'sonner';
 
 const ProductCard = ({ product }: { product: IProduct }) => {
-  //const addToCart = useCartStore((state) => state.addToCart);
+  const addToCart = useCartStore((state) => state.addToCart);
   const handleAddToCart = (product: IProduct) => {
     addToCart({
       id: product.id,
@@ -37,7 +37,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
           />
         </Link>
         <div className='p-4 flex-grow'>
-          <Link href={`/product/${product.id}`}>
+          <Link href={`/product/${product.id}`}>    
             <h3 className='text-xl mb-2 text-gray-700 group-hover:text-purple-500 transition-colors duration-300 line-clamp-1'>
               {product.attributeValues.p_title.value}
             </h3>

@@ -3,7 +3,7 @@ import { IPagesEntity } from 'oneentry/dist/pages/pagesInterfaces';
 import { fetchApiClient } from '@/lib/oneentry';
 import { getCatalogs } from './getCatalog';
 
-export const getCatalogWithProducts = async () => {
+export const getCatalogwithProduct = async () => {
   const apiClient = await fetchApiClient();
   const catalogs: IPagesEntity[] = await getCatalogs();
 
@@ -15,7 +15,7 @@ export const getCatalogWithProducts = async () => {
         undefined,
         'en_US',
         {
-          limit: 4,
+          limit: 4, 
           offset: 0,
           sortOrder: null,
           sortKey: null,

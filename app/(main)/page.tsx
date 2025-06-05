@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
-//import { getCatalogWithProducts } from '@/actions/catalog/getCatalogWithProducts';
+import { getCatalogwithProduct } from '@/actions/catalog/getCatalogwithProduct';
 
 import ProductCatalog from '@/components/ui/productCatalog';
 import { ICatalog } from '@/types/catalog.d';
@@ -15,7 +15,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const getData = async () => {
-      const catalogs = await getCatalogWithProducts();
+      const catalogs = await getCatalogwithProduct(); 
 
       if (catalogs?.length) {
         const transformedCatalogs = catalogs.map((catalog) => ({
@@ -54,9 +54,9 @@ export default function HomePage() {
                   experience!
                 </p>
                 <img
-                  src='https://assets.entrepreneur.com/content/3x2/2000/20150812074510-Online-shopping.jpeg?format=pjeg&auto=webp&crop=16:9&width=675&height=380'
+                  src='https://imgs.search.brave.com/y-ort2mR7eJKi48om1KbD2MFM2N4zYUyRKCTj2n4Tvg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA1Lzk4LzYwLzcy/LzM2MF9GXzU5ODYw/NzIxOF9GQXJoYXVo/VWpjVVdGbDRHWGVx/bEdjVHE4SUl3VDJU/dy5qcGc'
                   alt='Hero Image'
-                  className='absolute inset-0 w-full h-full object-cover opacity-20 z-1'
+                  className='absolute inset-0 w-full h-full object-cover opacity-40 z-1'
                 />
                 <Button className='bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white z-2 cursor-pointer'>
                   Shop Now
