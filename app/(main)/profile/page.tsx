@@ -2,21 +2,21 @@
 
 import { useState, useEffect } from 'react';
 
-import { Package, DollarSign, Calendar } from 'lucide-react';
+//import { Package, DollarSign, Calendar } from 'lucide-react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import getUserSession from '@/actions/auth/getUserSession';
 //import { getOrders } from '@/actions/orders/get-orders';
 import { IUserEntity } from 'oneentry/dist/users/usersInterfaces';
 import { redirect } from 'next/navigation';
 
-interface UserStats {
-  lifetimeOrders: number;
-  lifetimeSpent: number;
-  yearlyOrders: number;
-  yearlySpent: number;
-  monthlyOrders: number;
-  monthlySpent: number;
-}
+// interface UserStats {
+//   lifetimeOrders: number;
+//   lifetimeSpent: number;
+//   yearlyOrders: number;
+//   yearlySpent: number;
+//   monthlyOrders: number;
+//   monthlySpent: number;
+// }
 
 export default function ProfilePage() {
   const [user, setUser] = useState<IUserEntity | null>(null);
@@ -177,25 +177,25 @@ useEffect(() => {
   );
 }
 
-function StatCard({
-  icon,
-  title,
-  value,
-  subvalue,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  value: string | number;
-  subvalue?: string;
-}) {
-  return (
-    <div className='bg-gray-100 p-4 rounded-lg flex items-center space-x-4'>
-      {icon}
-      <div>
-        <h4 className='text-sm font-medium text-gray-500'>{title}</h4>
-        <p className='text-2xl font-bold text-purple-500'>{value}</p>
-        {subvalue && <p className='text-sm text-gray-700'>{subvalue}</p>}
-      </div>
-    </div>
-  );
-}
+// function StatCard({
+//   icon,
+//   title,
+//   value,
+//   subvalue,
+// }: {
+//   icon: React.ReactNode;
+//   title: string;
+//   value: string | number;
+//   subvalue?: string; }) 
+// {
+//   return (
+//     <div className='bg-gray-100 p-4 rounded-lg flex items-center space-x-4'>
+//       {icon}
+//       <div>
+//         <h4 className='text-sm font-medium text-gray-500'>{title}</h4>
+//         <p className='text-2xl font-bold text-purple-500'>{value}</p>
+//         {subvalue && <p className='text-sm text-gray-700'>{subvalue}</p>}
+//       </div>
+//     </div>
+//   );
+// }

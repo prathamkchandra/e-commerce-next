@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 
 import { Input } from '@/components/ui/input';
+import Image from 'next/image';
+
 
 import {
   ShoppingCart,
@@ -88,16 +90,18 @@ export default function CartPage() {
         ) : (
           <>
             <div>
-              {cartItems.map((item, index) => (
+              {cartItems.map((item) => (
                 <div
                   key={item.id}
                   className=' p-4 sm:p-6 rounded-lg shadow-lg mb-4 relative overflow-hidden border-2 border-gray-200'
                 >
                   <div className='flex flex-col sm:flex-row sm:items-center sm:space-x-4'>
                     <div className='flex items-center space-x-4 mb-4 sm:mb-0'>
-                      <img
+                      <Image
                         src={item.image}
                         alt={item.name}
+                        width={64}
+                        height={64}
                         className='w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-md'
                       />
 

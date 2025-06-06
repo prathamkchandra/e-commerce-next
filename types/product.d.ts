@@ -1,6 +1,6 @@
 export interface IProduct {
   id: number;
-  localizeInfos: { title: Record<string, any> };
+  localizeInfos: { title: Record<string, string> };
   price: number | null;
   attributeValues: {
     p_description: { value: { htmlValue: string }[] };
