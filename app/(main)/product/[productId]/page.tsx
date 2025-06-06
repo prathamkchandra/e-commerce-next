@@ -17,6 +17,7 @@ import ProductCatalog from '@/components/ui/productCatalog';
 import { getRelatedProducts } from '@/actions/catalog/getRelatedProducts';
 
 import { toast } from 'sonner';
+import Image from 'next/image';
 
 export default function ProductDetailPage({
     params: paramsPromise,
@@ -103,6 +104,10 @@ export default function ProductDetailPage({
         );
     }
 
+    console.log(product, 
+"Whats iwn product 2"
+    )
+
     return (
         <div className='min-h-screen'>
             <main className='container mx-auto px-4 py-8'>
@@ -118,27 +123,30 @@ export default function ProductDetailPage({
 
                 <div className='grid md:grid-cols-2 gap-8'>
                     <div className='relative overflow-hidden rounded-lg '>
-                        <img
-                            src={product.attributeValues.p_image.value.downloadLink}
-                            alt={product.name}
+                        <Image
+                        unoptimized 
+                            src={product?.attributeValues?.p_image?.value.downloadLink}
+                            alt={product?.name || ""}
+            height={0}
+                            width={0}
                             className='object-contain w-full max-h-[400px] transition-transform duration-300 transform hover:scale-105'
                         />
                     </div>
 
                     <div className='space-y-6'>
                         <h1 className='text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent'>
-                            {product.attributeValues.p_title.value}
+                            {product?.attributeValues?.p_title.value}
                         </h1>
 
                         <p className='text-xl font-semibold text-gray-700'>
-                            ${product.attributeValues.p_price.value.toFixed(2)}
+                            ${product?.attributeValues?.p_price.value?.toFixed(2)}
                         </p>
 
                         <div
                             className='text-gray-500'
                             dangerouslySetInnerHTML={{
                                 __html:
-                                    product.attributeValues.p_description.value[0].htmlValue,
+                                    product?.attributeValues?.p_description?.value[0]?.htmlValue,
                             }}
                         />
 

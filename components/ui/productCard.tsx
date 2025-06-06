@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import useCartStore from '@/stores/cartStore';
 import { IProduct } from '@/types/product';
 import { toast } from 'sonner';
+import Image from 'next/image';
 
 const ProductCard = ({ product }: { product: IProduct }) => {
   const addToCart = useCartStore((state) => state.addToCart);
@@ -29,9 +30,12 @@ const ProductCard = ({ product }: { product: IProduct }) => {
           href={`/product/${product.id}`}
           className='relative w-full pt-[100%] bg-transparent'
         >
-          <img
-            src={product.attributeValues.p_image.value.downloadLink}
-            alt={product.attributeValues.p_title.value}
+          <Image
+          unoptimized 
+            src={product?.attributeValues?.p_image?.value?.downloadLink}
+            alt={product?.attributeValues?.p_title?.value || ""}
+            height={0}
+                            width={0}
             className='
             absolute inset-0 w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 border-b-2 border-gray-200'
           />
@@ -45,7 +49,8 @@ const ProductCard = ({ product }: { product: IProduct }) => {
           <div
             className='text-gray-500 line-clamp-2 text-sm mb-2'
             dangerouslySetInnerHTML={{
-              __html: product.attributeValues.p_description.value[0].htmlValue,
+              __html: 
+              product.attributeValues?.p_description?.value[0]?.htmlValue,
             }}
           />
           <p className='text-gray-600'>

@@ -10,6 +10,7 @@ const ProductCatalog = ({
   title: string;
   products: IProductsEntity[];
 }) => {
+  console.log(products, "Products in catalog")
   return (
     <section className='mb-12'>
       <h2 className='text-3xl font-bold mb-8 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent'>

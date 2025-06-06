@@ -38,6 +38,8 @@ export default function HomePage() {
     getData();
   }, []);
 
+
+  console.log(products, "Whats in products")
   return (
     <div className='min-h-screen'>
       <main className='container mx-auto px-4 py-8'>
