@@ -30,15 +30,17 @@ const ProductCard = ({ product }: { product: IProduct }) => {
           href={`/product/${product.id}`}
           className='relative w-full pt-[100%] bg-transparent'
         >
-          <Image
-          unoptimized 
-            src={product?.attributeValues?.p_image?.value?.downloadLink}
-            alt={product?.attributeValues?.p_title?.value || ""}
-            height={0}
-                            width={0}
-            className='
+
+ <Image
+  unoptimized
+  src={product?.attributeValues?.p_image?.value?.downloadLink || "/placeholder.png"}
+  alt={product?.attributeValues?.p_title?.value || "Product Image"}
+  width={400}
+  height={400}
+    className='
             absolute inset-0 w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 border-b-2 border-gray-200'
-          />
+/>
+
         </Link>
         <div className='p-4 flex-grow'>
           <Link href={`/product/${product.id}`}>    

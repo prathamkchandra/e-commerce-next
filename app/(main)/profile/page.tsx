@@ -21,83 +21,103 @@ interface UserStats {
 export default function ProfilePage() {
   const [user, setUser] = useState<IUserEntity | null>(null);
 
-  const [stats, setStats] = useState<UserStats>({
-    lifetimeOrders: 0,
-    lifetimeSpent: 0,
-    yearlyOrders: 0,
-    yearlySpent: 0,
-    monthlyOrders: 0,
-    monthlySpent: 0,
-  });
+//   const [stats, setStats] = useState<UserStats>({
+//     lifetimeOrders: 0,
+//     lifetimeSpent: 0,
+//     yearlyOrders: 0,
+//     yearlySpent: 0,
+//     monthlyOrders: 0,
+//     monthlySpent: 0,
+//   });
 
   const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1500);
-    return () => clearTimeout(timer);
-  }, []);
+  const timer = setTimeout(() => setIsLoading(false), 1500);
+  return () => clearTimeout(timer);
+}, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const userData = await getUserSession();
-      if (userData) setUser(userData as IUserEntity);
-      if (!userData) {
-        setUser(null);
-        setIsLoading(false);
-        redirect('/auth?type=login');
-      }
+useEffect(() => {
+  const fetchData = async () => {
+    const userData = await getUserSession();
+
+    if (userData) {
+      setUser(userData as IUserEntity);
+      // You can fetch and calculate orders here if needed
+    } else {
+      setUser(null);
+      setIsLoading(false);
+      redirect('/auth?type=login');
+    }
+  };
+
+  fetchData();
+}, []);
+
+
+//   useEffect(() => {
+//     const timer = setTimeout(() => setIsLoading(false), 1500);
+//     return () => clearTimeout(timer);
+//   }, []);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       const userData = await getUserSession();
+//       if (userData) setUser(userData as IUserEntity);
+//       if (!userData) {
+//         setUser(null);
+//         setIsLoading(false);
+//         redirect('/auth?type=login');
+//       }
       //const orders = await getOrders();
-      if (orders) {
-        let lifetimeOrders = 0;
-        let lifetimeSpent = 0;
-        let yearlyOrders = 0;
-        let yearlySpent = 0;
-        let monthlyOrders = 0;
-        let monthlySpent = 0;
+    //   if (orders) {
+    //     let lifetimeOrders = 0;
+    //     let lifetimeSpent = 0;
+    //     let yearlyOrders = 0;
+    //     let yearlySpent = 0;
+    //     let monthlyOrders = 0;
+    //     let monthlySpent = 0;
 
-        orders.items.forEach(
-          (order: {
-            createdDate: string | number | Date;
-            totalSum: string;
-          }) => {
-            const orderDate = new Date(order.createdDate);
-            const orderYear = orderDate.getFullYear();
-            const orderMonth = orderDate.getMonth() + 1;
-            const totalSum = parseFloat(order.totalSum);
-            const currentYear = new Date().getFullYear(); // Define current year here
-            const currentMonth = new Date().getMonth() + 1; // Define current month here
+    //     orders.items.forEach(
+    //       (order: {
+    //         createdDate: string | number | Date;
+    //         totalSum: string;
+    //       }) => {
+    //         const orderDate = new Date(order.createdDate);
+    //         const orderYear = orderDate.getFullYear();
+    //         const orderMonth = orderDate.getMonth() + 1;
+    //         const totalSum = parseFloat(order.totalSum);
+    //         const currentYear = new Date().getFullYear(); // Define current year here
+    //         const currentMonth = new Date().getMonth() + 1; // Define current month here
 
-            // Lifetime
-            lifetimeOrders += 1;
-            lifetimeSpent += totalSum;
+    //         // Lifetime
+    //         lifetimeOrders += 1;
+    //         lifetimeSpent += totalSum;
 
-            // Yearly
-            if (orderYear === currentYear) {
-              yearlyOrders += 1;
-              yearlySpent += totalSum;
-            }
+    //         // Yearly
+    //         if (orderYear === currentYear) {
+    //           yearlyOrders += 1;
+    //           yearlySpent += totalSum;
+    //         }
 
-            // Monthly
-            if (orderYear === currentYear && orderMonth === currentMonth) {
-              monthlyOrders += 1;
-              monthlySpent += totalSum;
-            }
-          }
-        );
+    //         // Monthly
+    //         if (orderYear === currentYear && orderMonth === currentMonth) {
+    //           monthlyOrders += 1;
+    //           monthlySpent += totalSum;
+    //         }
+        //   }
+        // );
 
-        setStats({
-          lifetimeOrders,
-          lifetimeSpent,
-          yearlyOrders,
-          yearlySpent,
-          monthlyOrders,
-          monthlySpent,
-        });
-      }
-    };
-    fetchData();
-  }, []);
-
+        // setStats({
+        //   lifetimeOrders,
+        //   lifetimeSpent,
+        //   yearlyOrders,
+        //   yearlySpent,
+        //   monthlyOrders,
+        //   monthlySpent,
+        // });
+//}});    };
+// fetchData();
+// }});};
   return (
     <div className='min-h-screen  p-8'>
       <div className='max-w-4xl mx-auto'>
@@ -132,10 +152,10 @@ export default function ProfilePage() {
                 My Stats
               </h3>
               <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-                <StatCard
+                {/* <StatCard
                   icon={<Package className='h-8 w-8 text-purple-500' />}
                   title='Lifetime Orders'
-                  value={stats.lifetimeOrders}
+                  //value={stats.lifetimeOrders}
                 />
                 <StatCard
                   icon={<DollarSign className='h-8 w-8 text-purple-500' />}
@@ -147,7 +167,7 @@ export default function ProfilePage() {
                   title='This Year'
                   value={`${stats.yearlyOrders} orders`}
                   subvalue={`$${stats.yearlySpent.toFixed(2)} spent`}
-                />
+                /> */}
               </div>
             </div>
           </>
