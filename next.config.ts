@@ -1,16 +1,23 @@
 import type { NextConfig } from "next";
+import { hostname } from "os";
 
 const nextConfig: NextConfig = {
   /* config options here */
   
   images: {
-    domains: ['https://next--ecommerce.oneentry.cloud'],
+    // protcol = "https"
+    // hostname = "next--ecommerce.oneentry.cloud"
+    //domains: ['https://next--ecommerce.oneentry.cloud'],
+
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'https://next--ecommerce.oneentry.cloud',
+        hostname: 'next--ecommerce.oneentry.cloud',
         port: '',
-        pathname: '/account123/**',
+      },{
+        protocol: 'https',
+        hostname: 'imgs.search.brave.com',
+        port: '',
       },
     ],
   },

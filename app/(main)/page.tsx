@@ -9,6 +9,9 @@ import ProductCatalog from '@/components/ui/productCatalog';
 import { ICatalog } from '@/types/catalog.d';
 import { IProductsEntity } from 'oneentry/dist/products/productsInterfaces';
 
+import Image from 'next/image';
+
+
 export default function HomePage() {
   const [products, setProducts] = useState<ICatalog[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -55,15 +58,18 @@ export default function HomePage() {
                   favorite products. Shop now and enjoy a seamless shopping
                   experience!
                 </p>
-                <img
-                  src='https://imgs.search.brave.com/y-ort2mR7eJKi48om1KbD2MFM2N4zYUyRKCTj2n4Tvg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA1Lzk4LzYwLzcy/LzM2MF9GXzU5ODYw/NzIxOF9GQXJoYXVo/VWpjVVdGbDRHWGVx/bEdjVHE4SUl3VDJU/dy5qcGc'
-                  alt='Hero Image'
-                  className='absolute inset-0 w-full h-full object-cover opacity-40 z-1'
-                />
-                <Button className='bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white z-2 cursor-pointer'>
-                  Shop Now
-                  <ArrowRight className='ml-2 h-4 w-4' />
-                </Button>
+               <Image
+               width={0}
+               height={0}
+  src='https://imgs.search.brave.com/y-ort2mR7eJKi48om1KbD2MFM2N4zYUyRKCTj2n4Tvg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA1Lzk4LzYwLzcy/LzM2MF9GXzU5ODYw/NzIxOF9GQXJoYXVo/VWpjVVdGbDRHWGVx/bEdjVHE4SUl3VDJU/dy5qcGc'
+  alt='Hero Image'
+  className='absolute w-full z-[1] opacity-60'
+  // loading='lazy'
+  objectFit='cover'
+  objectPosition='center'
+   style={{ width: '100%', height: 'auto' }} 
+   sizes='100vw'
+/>
               </div>
             </div>
           </div>
