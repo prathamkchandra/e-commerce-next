@@ -87,7 +87,7 @@ export default function Navbar() {
         <div className='flex items-center justify-between h-16'>
           <div className='flex items-center'>
             <Link href='/' className='flex-shrink-0'>
-              <span className='text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent'>
+              <span className='text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 bg-clip-text text-transparent'>
                 PrathamShop
               </span>
             </Link>
@@ -304,14 +304,14 @@ export default function Navbar() {
               <div className='mt-3 px-2 space-y-1'>
                 <Link
                   href='/auth?type=login'
-                  className='block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-purple-500'
+                  className='block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-purple-400'
                   onClick={handleMenuItemClick}
                 >
                   Login
                 </Link>
                 <Link
                   href='/auth?type=signup'
-                  className='block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-purple-500'
+                  className='block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-purple-100'
                   onClick={handleMenuItemClick}
                 >
                   Sign Up

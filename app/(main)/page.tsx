@@ -50,10 +50,10 @@ export default function HomePage() {
           <div className='relative overflow-hidden rounded-lg shadow-lg '>
             <div className='w-full h-[400px] relative'>
               <div className='absolute inset-0 flex flex-col justify-center items-center text-center p-8'>
-                <h2 className='text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent z-3'>
+                <h2 className='text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-red-500 bg-clip-text text-transparent z-3'>
                   Welcome to our Store!
                 </h2>
-                <p className='text-xl mb-8 text-gray-700 z-4'>
+                <p className='text-xl mb-8 text-gray-1000 z-4'>
                   Discover the latest trends and exclusive deals on your
                   favorite products. Shop now and enjoy a seamless shopping
                   experience!
