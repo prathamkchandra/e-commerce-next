@@ -130,8 +130,8 @@ function AuthForm() {
             </h2>
             <p className='text-base sm:text-lg lg:text-xl text-gray-400 mb-6 sm:mb-8'>
               {isSignUp
-                ? 'Join SahandStore today and discover exclusive deals on your favorite products!'
-                : 'Welcome back to SahandStore! Log in to continue your shopping journey.'}
+                ? 'Join PrathamStore today and discover exclusive deals on your favorite products!'
+                : 'Welcome back to PrathamStore! Log in to continue your shopping journey.'}
             </p>
           </div>
 
