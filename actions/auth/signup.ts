@@ -8,7 +8,7 @@ export const getSignupFormData = async (): Promise<IAttributes[]> => {
     const apiClient = await fetchApiClient();
     const response = await apiClient?.Forms.getFormByMarker("sign_up", "en_US");
     return response?.attributes as unknown as IAttributes[];
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error(error);
     throw new Error("Fetching form data failed.");
   }
