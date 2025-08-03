@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'next--ecommerce.oneentry.cloud',
+        hostname: 'pratham-shop.oneentry.cloud',
         port: '',
       },{
         protocol: 'https',
